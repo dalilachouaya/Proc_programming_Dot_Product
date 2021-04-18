@@ -1,0 +1,47 @@
+
+// Description of Procedure:
+PROCEDURE dot_product(VAR v1:ARRAY_OF INTEGER , VAR v2:ARRAY_OF INTEGER)
+VAR
+        i, ps:INTEGER;
+BEGIN
+    IF (v1.length != v2.length) THEN
+        Write(" Can't find dot product, vectors have different length ");
+    ELSE
+        ps := 0;
+        FOR i FROM 0 TO v1.length STEP 1  DO
+        ps := ps + v1[i] * v2[i] ;
+        END_FOR
+    END_IF
+    Write(ps);
+END
+
+ALGORITHM dot_product_algo
+VAR
+    V1 , V2 : ARRAY_OF INTEGER[50];
+    i,n,m : INTEGER; 
+BEGIN
+   // Read the size
+    Write('The size of the arrays :')
+    Read(m);
+    Read(n);
+   // Read elements
+    Write('write two arrays :')
+    Write('V1 :')
+    FOR i FROM 0 TO m-1 STEP 1  DO
+        Read(V1[i]);
+    END_FOR
+    Write('V2:')
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Read(V2[i]);
+    END_FOR
+    dot_product( V1 , V2 );
+    FOR i FROM 0 TO V1.length STEP 1  DO
+        FOR i FROM 0 TO V2.length STEP 1  DO
+            IF (dot_product(V1 , V2) === 0) THEN
+                Write('These vectors are orthogonal');
+            END_IF
+        END_FOR   
+    END_FOR
+
+END
+
