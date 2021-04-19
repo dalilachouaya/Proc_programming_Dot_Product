@@ -1,10 +1,10 @@
 
 // Description of Procedure:
-PROCEDURE dot_product(VAR v1:ARRAY_OF INTEGER , VAR v2:ARRAY_OF INTEGER)
+PROCEDURE dot_product(VAR v1:ARRAY_OF INTEGER , VAR v2:ARRAY_OF INTEGER , VAR ps:INTEGER)
 VAR
         i, ps:INTEGER;
 BEGIN
-    IF (v1.length != v2.length) THEN
+    IF (v1.length <> v2.length) THEN
         Write(" Can't find dot product, vectors have different length ");
     ELSE
         ps := 0;
@@ -35,6 +35,7 @@ BEGIN
         Read(V2[i]);
     END_FOR
     dot_product( V1 , V2 );
+
     FOR i FROM 0 TO V1.length STEP 1  DO
         FOR i FROM 0 TO V2.length STEP 1  DO
             IF (dot_product(V1 , V2) === 0) THEN
